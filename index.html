@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfinityCorp - Master Project Briefing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+        .bg-premium {
+            background: radial-gradient(circle at 10% 5%, rgba(0, 150, 214, 0.15) 0%, transparent 35%), 
+                        radial-gradient(circle at 90% 50%, rgba(240, 108, 32, 0.1) 0%, transparent 40%), 
+                        radial-gradient(circle at 20% 95%, rgba(77, 183, 72, 0.08) 0%, transparent 30%), 
+                        #0b111e;
+        }
+        .image-container {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.7);
+        }
+        
+        /* Tooltip de Instruções no Botão de Impressão */
+        .print-btn-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 50;
+        }
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateY(10px);
+        }
+        .print-btn-container:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: #0b111e !important;
+            }
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body class="bg-premium text-slate-100 min-h-screen p-8 md:p-12 flex flex-col justify-between selection:bg-orange-500/30">
+
+    <!-- Botão Flutuante Otimizado com Tooltip (Não sai no PDF) -->
+    <div class="no-print print-btn-container flex flex-col items-end">
+        <button onclick="window.print()" class="bg-slate-900/90 hover:bg-[#f06c20] text-white border border-slate-700 hover:border-[#f06c20] px-4 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 shadow-2xl backdrop-blur-md">
+            <i class="fa-solid fa-print"></i> Imprimir Projeto
+        </button>
+        <!-- Tooltip com instruções ao passar o mouse -->
+        <div class="tooltip mt-2 bg-slate-950 border border-slate-800 p-3 rounded-lg w-64 text-[11px] space-y-1.5 shadow-2xl text-slate-300 pointer-events-none">
+            <p class="font-bold text-[#f06c20] flex items-center gap-1">
+                <i class="fa-solid fa-circle-info"></i> Dica de Impressão (PDF):
+            </p>
+            <p>Aperte <kbd class="bg-slate-800 px-1 py-0.5 rounded text-white font-mono">Ctrl + P</kbd> (ou <kbd class="bg-slate-800 px-1 py-0.5 rounded text-white font-mono">Cmd + P</kbd>).</p>
+            <p>Marque <b>"Gráficos de segundo plano"</b> e defina as margens como <b>"Nenhuma"</b> para manter este fundo premium.</p>
+        </div>
+    </div>
+
+    <!-- CABEÇALHO DA APRESENTAÇÃO -->
+    <header class="border-b border-slate-800/80 pb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div class="flex items-center gap-6">
+            <!-- Seu Logotipo Enviado (Dobrado de Tamanho para Máximo Destaque) -->
+            <img src="logo.png" alt="Infinity Logo" class="h-32 w-auto object-contain">
+            <div>
+                <h1 class="text-4xl font-extrabold tracking-widest text-white">INFINITY<span class="text-[#0096d6]">CORP</span></h1>
+                <p class="text-slate-400 text-[10px] tracking-[0.3em] uppercase mt-1">Planejamento Estratégico de Evento</p>
+            </div>
+        </div>
+        <div class="flex flex-col items-start md:items-end gap-2">
+            <span class="bg-[#f06c20]/10 border border-[#f06c20]/30 text-[#f06c20] text-xs font-bold tracking-wider px-4 py-1.5 rounded-full flex items-center gap-2">
+                <i class="fa-regular fa-calendar-days text-[11px]"></i> 1º CAFÉ COM CONEXÃO
+            </span>
+            <span class="text-slate-500 text-[10px] tracking-widest uppercase">Briefing Evento • Diretoria</span>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="my-10 space-y-16 flex-grow">
+        
+        <!-- FASE 1: A CONCEPÇÃO E FOCO COMERCIAL (Tema Amarelado/Dourado) -->
+        <section class="space-y-6">
+            <div class="border-l-4 border-[#ffb800] pl-4">
+                <span class="text-[#ffb800] text-xs font-bold uppercase tracking-widest">Fase 01</span>
+                <h2 class="text-2xl font-extrabold text-white">O Conceito: Café com Conexão</h2>
+                <p class="text-slate-400 text-sm mt-1">Mais do que um encontro, uma máquina ativa de geração de demanda, aproximação de clientes e retenção de contas-chave.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-[#ffb800]"></i> Propósito Comercial e Fidelização
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        O <strong>Café com Conexão</strong> foi estrategicamente estruturado para funcionar como nossa principal ferramenta de atração e blindagem de contas. Em vez de uma abordagem de vendas tradicional, criamos um ambiente que traz o cliente para o centro da nossa órbita, gerando o cenário perfeito para <strong>plantar novas vendas, consolidar parcerias de longo prazo e garantir máxima fidelidade à marca</strong>.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-slate-900/30 border border-slate-800 p-4 rounded-xl">
+                            <span class="text-xs text-slate-500 block">Objetivo Principal</span>
+                            <span class="text-sm font-semibold text-[#ffb800]">Atualização de Portfólio</span>
+                        </div>
+                        <div class="bg-slate-900/30 border border-slate-800 p-4 rounded-xl">
+                            <span class="text-xs text-slate-500 block">Foco Comercial</span>
+                            <span class="text-sm font-semibold text-[#e53935]">Lançamento de Soluções</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Imagem do Café com Gráficos Financeiros -->
+                <div class="image-container rounded-2xl overflow-hidden h-72 relative group">
+                    <img src="cafe-graficos.png" alt="Café e Dashboard de Negócios" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent p-6 flex flex-col justify-end">
+                        <span class="bg-[#ffb800] text-slate-950 text-[10px] font-bold px-2.5 py-1 rounded-md w-max mb-1.5 uppercase">Estratégia e Dados</span>
+                        <h4 class="font-bold text-white text-base">Alinhamento de Valor e Negócios</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASE 2: ENGENHARIA DIGITAL DE ENTRADA (TOTEM - Tema Azul) -->
+        <section class="space-y-6 page-break">
+            <div class="border-l-4 border-[#0096d6] pl-4">
+                <span class="text-[#0096d6] text-xs font-bold uppercase tracking-widest">Fase 02</span>
+                <h2 class="text-2xl font-extrabold text-white">A Experiência Começa ao Chegar: O Poder da Usabilidade Inconsciente </h2>
+                <p class="text-slate-400 text-sm mt-1">O cliente já entende a usabilidade, facilidade do nosso valor tecnológico no primeiro segundo de contato físico com nossos modelos de Totens e Impressão imediata</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Explicação Técnica (Largura expandida para melhor simetria sem o quadro de contingência) -->
+                <div class="lg:col-span-1 flex flex-col justify-center">
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        A recepção do evento dita o tom da experiência. Com o totem de autoatendimento ágil, eliminamos as barreiras tradicionais da recepção, demonstrando na prática a velocidade e a inteligência operacional da InfinityCorp.
+                    </p>
+                </div>
+                
+                <!-- Fluxo UX Otimizado em Grid Sem o Card de Contingência -->
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- 01: Amarelo (Fase 1) -->
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-4 rounded-xl flex gap-3 transition-colors hover:border-[#ffb800]/30">
+                        <span class="text-2xl font-extrabold text-[#ffb800]">01</span>
+                        <div>
+                            <h4 class="font-bold text-[#ffb800] text-xs uppercase tracking-wider">Busca por CPF</h4>
+                            <p class="text-slate-400 text-[11px] mt-1">Check-in rápido e sem fricção para convidados pré-cadastrados.</p>
+                        </div>
+                    </div>
+                    <!-- 02: Vermelho (Fase 4) -->
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-4 rounded-xl flex gap-3 transition-colors hover:border-[#e53935]/30">
+                        <span class="text-2xl font-extrabold text-[#e53935]">02</span>
+                        <div>
+                            <h4 class="font-bold text-[#e53935] text-xs uppercase tracking-wider">Novo Cadastro</h4>
+                            <p class="text-slate-400 text-[11px] mt-1">Entrada expressa e cadastro otimizado diretamente na hora.</p>
+                        </div>
+                    </div>
+                    <!-- 03: Azul -->
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-4 rounded-xl flex gap-3 transition-colors hover:border-[#0096d6]/30">
+                        <span class="text-2xl font-extrabold text-[#0096d6]">03</span>
+                        <div>
+                            <h4 class="font-bold text-[#0096d6] text-xs uppercase tracking-wider">Sincronização e Impressão</h4>
+                            <p class="text-slate-400 text-[11px] mt-1">Comunicação contínua em tempo real e impressão da credencial.</p>
+                        </div>
+                    </div>
+                    <!-- 04: Verde -->
+                    <div class="bg-slate-950/40 border border-slate-800/80 p-4 rounded-xl flex gap-3 transition-colors hover:border-[#4db748]/30">
+                        <span class="text-2xl font-extrabold text-[#4db748]">04</span>
+                        <div>
+                            <h4 class="font-bold text-[#4db748] text-xs uppercase tracking-wider">Dashboard de Sucesso</h4>
+                            <p class="text-slate-400 text-[11px] mt-1">Feedback visual imediato que avisa a recepção quem acaba de entrar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASE 3: O BANQUETE DE BOAS-VINDAS & NETWORKING (Tema Verde) -->
+        <section class="space-y-6 page-break">
+            <div class="border-l-4 border-[#4db748] pl-4">
+                <span class="text-[#4db748] text-xs font-bold uppercase tracking-widest">Fase 03</span>
+                <h2 class="text-2xl font-extrabold text-white">O Café: Networking e Proximidade</h2>
+                <p class="text-slate-400 text-sm mt-1">Aproximando decisores e estreitando conexões sob um ambiente acolhedor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Imagem do Banquete Premium -->
+                <div class="image-container rounded-2xl overflow-hidden h-72 relative group">
+                    <img src="banquete-networking.png" alt="Banquete e Networking Premium" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent p-6 flex flex-col justify-end">
+                        <span class="bg-[#4db748] text-white text-[10px] font-bold px-2.5 py-1 rounded-md w-max mb-1.5 uppercase">Relacionamento</span>
+                        <h4 class="font-bold text-white text-base">Conexões Reais Em Um Café Especial</h4>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-comments text-[#4db748]"></i> Engajamento Orgânico
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Após passarem pelo credenciamento tecnológico, os clientes são recebidos com um banquete de café da manhã de altíssimo nível. Esse é o momento crucial de aproximação interpessoal: com nossos gerentes, vendedores e CEO que interagem de maneira descontraída, ouvindo as dores do cliente, reforçando nosso comprometimento e preparando o terreno para as apresentações de soluções.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FASE 4: DEMONSTRAÇÃO ATIVA DO PORTFÓLIO (Tema Vermelho) -->
+        <section class="space-y-6 page-break">
+            <div class="border-l-4 border-[#e53935] pl-4">
+                <span class="text-[#e53935] text-xs font-bold uppercase tracking-widest">Fase 04</span>
+                <h2 class="text-2xl font-extrabold text-white">Apresentação, Atualização e Demonstração Ativa de Portfólio</h2>
+                <p class="text-slate-400 text-sm mt-1">O momento da conversão. Demonstração real de hardwares, totens e notebooks para atualização dos clientes.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-display text-[#e53935]"></i> Demonstração Tátil e Tecnológica
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Pensando em um palco, os convidados participam de uma apresentação altamente visual e interativa. Totens, notebooks e demais soluções do portfólio da InfinityCorp estão dispostos para experimentação direta. É aqui que mostramos na prática a nossa capacidade, gerando o desejo de atualização tecnológica imediata no parque de equipamentos de cada cliente ali presente.
+                    </p>
+                </div>
+                
+                <!-- Imagem do Palco e Showroom Tecnológico -->
+                <div class="image-container rounded-2xl overflow-hidden h-72 relative group">
+                    <img src="palco-tecnologico.png" alt="Showroom Tecnológico InfinityCorp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent p-6 flex flex-col justify-end">
+                        <span class="bg-[#e53935] text-white text-[10px] font-bold px-2.5 py-1 rounded-md w-max mb-1.5 uppercase">Demonstração</span>
+                        <h4 class="font-bold text-white text-base">No Palco & Demonstração de Portfólio</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ DA APRESENTAÇÃO -->
+    <footer class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+        <div>
+            INFINITYCORP &copy; 2026 • TODOS OS DIREITOS RESERVADOS
+        </div>
+        <div class="flex gap-6 font-semibold">
+            <span class="text-orange-500/80">Apresentação Estratégica</span>
+            <span>1º - EVENTO DESTINADO AO ESTADO DE SÃO PAULO - BR</span>
+        </div>
+    </footer>
+
+</body>
+</html>
